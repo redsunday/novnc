@@ -25,6 +25,13 @@ apt-get install -y tigervnc-standalone-server
 apt-get clean -y
 printf '\n$localhost = "no";\n1;\n' >>/etc/tigervnc/vncserver-config-defaults
 
+echo "Install Chrome"
+apt-get install fonts-liberation libu2f-udev xdg-utils -y
+apt-get clean -y
+wget -qO- https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /google-chrome-stable_current_amd64.deb
+dpkg -i /google-chrome-stable_current_amd64.deb
+rm -f /google-chrome-stable_current_amd64.deb
+
 echo "Install noVNC"
 mkdir -p /app/noVNC/utils/websockify
 wget -qO- https://github.com/novnc/noVNC/archive/refs/tags/v1.4.0.tar.gz | tar xz --strip 1 -C /app/noVNC
