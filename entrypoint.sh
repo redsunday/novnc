@@ -14,7 +14,7 @@ vncserver -kill $DISPLAY &> /app/logs/vnc_startup.log \
     || rm -rfv /tmp/.X*-lock /tmp/.X11-unix &> /app/logs/vnc_startup.log \
     || echo "no locks present"
 
-vncserver $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION PasswordFile=/app/vnc/passwd > /app/logs/no_vnc_startup.log 2>&1
+vncserver -SecurityTypes None $DISPLAY -depth $VNC_COL_DEPTH -geometry $VNC_RESOLUTION PasswordFile=/app/vnc/passwd > /app/logs/no_vnc_startup.log 2>&1
 
 echo -e "\n------------------ startup xfce window manager ------------------"
 xset -dpms &
