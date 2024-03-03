@@ -25,15 +25,8 @@ apt-get install -y tigervnc-standalone-server
 apt-get clean -y
 printf '\n$localhost = "no";\n1;\n' >>/etc/tigervnc/vncserver-config-defaults
 
-echo "Install Chrome"
-apt-get install fonts-liberation libu2f-udev xdg-utils -y
-apt-get clean -y
-wget -qO- https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /google-chrome-stable_current_amd64.deb
-dpkg -i /google-chrome-stable_current_amd64.deb
-rm -f /google-chrome-stable_current_amd64.deb
-
-echo "Install Firefox"
-apt-get install firefox-esr -y
+echo "Install Firefox & Chromium"
+apt-get install firefox-esr chromium -y
 apt-get clean -y
 
 echo "Install noVNC"
